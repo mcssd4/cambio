@@ -1,0 +1,62 @@
+Crie um projeto de site de câmbio de moedas com as seguintes características e funcionalidades:
+
+**Objetivo Principal:** Desenvolver um site de câmbio de moedas altamente profissional, estruturado e visualmente inovador, que transmita confiança ao usuário, utilizando o site 'https://www.melhorcambio.com/' como inspiração para as funcionalidades, mas com um design autoral e superior.
+
+**Design e Experiência do Usuário (UX/UI):**
+*   **Estilo:** Profissional, moderno, elegante e com foco na usabilidade. O design deve ser autoral, mas alinhado com o nicho de sites de câmbio, transmitindo segurança e credibilidade.
+*   **Animações Visuais:** Implementar animações visuais inovadoras e fluidas que melhorem a experiência do usuário e a percepção de profissionalismo.
+*   **Confiabilidade:** O design e a interface devem, acima de tudo, transmitir uma forte sensação de confiabilidade e segurança para o usuário.
+*   **Liberdade Criativa:** Embora o nicho seja um guia, há total liberdade criativa para propor e implementar as melhores soluções de design e funcionalidades que elevem a qualidade do projeto.
+
+**Funcionalidades Essenciais:**
+
+1.  **Seleção de Idioma (Modal):**
+    *   Ao entrar no site, um modal deve aparecer permitindo ao usuário selecionar o idioma de sua preferência.
+    *   Idiomas obrigatórios: Português (Brasil), Inglês, Espanhol, Chinês, Tailandês, Francês.
+
+2.  **Cálculo de Câmbio:**
+    *   Campo para inserção do valor a ser convertido.
+    *   Exibição clara do valor resultante após a conversão, aplicando uma taxa fixa de 0.4%.
+
+3.  **Processo de Compra/Câmbio:**
+    *   Botão 
+
+de 'Comprar' que redireciona para a página de opções de pagamento.
+
+4.  **Opções de Pagamento:**
+    *   **Brasil:** Exclusivamente PIX.
+    *   **Outros Países:** Exclusivamente Depósito Bancário (com informações de conta bancária genérica).
+
+5.  **Registro de Usuário e Verificação:**
+    *   **Área de Registro:** Formulário completo para cadastro de informações pessoais.
+    *   **Dados de Cadastro:** Nome completo, e-mail, telefone, endereço, nacionalidade.
+    *   **Verificação de Identidade:** Upload de documento de identidade (RG/CNH) e selfie para comparação.
+    *   **Backend (Firebase):** As informações de cadastro e verificação devem ser enviadas para um backend funcional no Firebase. Os tokens de recebimento serão substituídos posteriormente.
+    *   **Aprovação Pendente:** Após o envio, o cadastro deve ficar pendente de aprovação.
+
+6.  **Painel de Aprovação (Restrito):**
+    *   Um painel de uso restrito aos desenvolvedores (acessível via link oculto) para aprovação/desaprovação de cadastros e transações.
+    *   **Funcionalidades do Painel:**
+        *   Visualização de todos os cadastros pendentes.
+        *   Aprovação ou desaprovação de cadastros.
+        *   Visualização de todas as interações de compra/câmbio.
+        *   Aprovação ou desaprovação de transações.
+        *   Geração e envio manual de links de pagamento (para PIX no Brasil) ou informações de depósito (para outros países).
+        *   Confirmação de recebimento de valores.
+
+7.  **Fluxo de Transação (Manual/Semi-automático):**
+    *   Ao clicar em 'Fazer o Câmbio' (na primeira parte do site), a informação da transação deve chegar ao painel de aprovação.
+    *   **Loading na Tela:** Enquanto o link de pagamento (PIX) ou informações de depósito não forem enviadas do painel, a tela do usuário deve exibir um loading.
+    *   **Envio do Link/Informações:** O desenvolvedor (via painel) envia o link de pagamento/informações de depósito.
+    *   **Tela de Pagamento:** Após o envio, o usuário é redirecionado para uma tela de pagamento, onde o link/informações são exibidos e a confirmação do pagamento é aguardada.
+    *   **Confirmação de Recebimento:** O usuário deve informar a conta bancária para recebimento do valor na moeda desejada.
+    *   **Aprovação no Painel:** Após o pagamento pelo usuário, o desenvolvedor aprova a transação no painel.
+    *   **Prazo de Entrega:** Após a aprovação, a mensagem 'Daqui 12 horas estará na conta' deve ser exibida.
+
+**Requisitos Gerais:**
+*   Todas as funcionalidades devem ser implementadas de forma robusta e profissional, sem simplificações que comprometam a qualidade.
+*   O site deve ser totalmente funcional, com todas as páginas necessárias para a operação de um serviço de câmbio.
+*   O site de inspiração (https://www.melhorcambio.com/) deve ser usado estritamente para referência de funcionalidades do nicho, não para o design.
+*   Total liberdade criativa para implementar funcionalidades adicionais que agreguem valor e melhorem a experiência do usuário, desde que alinhadas com o nicho.
+
+**Observação:** O backend Firebase deve ser configurado para ser funcional, permitindo a troca de tokens de recebimento de informações posteriormente.
