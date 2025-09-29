@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CambioMax Pro - A plataforma de câmbio de moedas mais confiável e profissional do mercado. Taxas competitivas, segurança máxima e suporte 24/7.">
+    <meta name="keywords" content="câmbio, moedas, exchange, forex, dólar, euro, real, bitcoin">
+    <meta name="author" content="CambioMax Pro">
+    
+    <title>CambioMax Pro - Câmbio de Moedas Profissional</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/utils/variables.css">
+    <link rel="stylesheet" href="styles/utils/reset.css">
+    <link rel="stylesheet" href="styles/components/buttons.css">
+    <link rel="stylesheet" href="styles/components/forms.css">
+    <link rel="stylesheet" href="styles/components/cards.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💱%3C/text%3E%3C/svg%3E">
+    
+    <style>
+        /* Main Layout Styles */
+        .main-layout {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--color-background);
+        }
+        
+        /* Header */
+        .header {
+            background: var(--color-surface);
+            border-bottom: var(--border-width) solid var(--color-border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: var(--z-sticky);
+            transition: all var(--transition-fast);
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-lg) 0;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #0052CC 100%);
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--font-size-lg);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+        
+        .nav-link {
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-medium);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-primary);
+            background: var(--color-primary-light);
+        }
+        
+        .nav-link.active {
+            color: var(--color-primary);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--color-primary);
+            border-radius: var(--border-radius-full);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-full);
+            background: var(--color-surface-hover);
+            border: var(--border-width) solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .theme-toggle:hover {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--color-surface-hover);
+            border: var(--border-width) solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            color: var(--color-text-primary);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .language-btn:hover {
+            border-color: var(--color-primary);
+            background: var(--color-primary-light);
+        }
+        
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            border-radius: var(--border-radius-sm);
+            object-fit: cover;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #0052CC 50%, var(--color-secondary) 100%);
+            color: white;
+            padding: var(--spacing-4xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-4xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .hero-content .highlight {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-content p {
+            font-size: var(--font-size-lg);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: var(--spacing-2xl);
+            opacity: 0.9;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-value {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            display: block;
+        }
+        
+        .hero-stat-label {
+            font-size: var(--font-size-sm);
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Exchange Calculator */
+        .exchange-calculator {
+            background: white;
+            border-radius: var(--border-radius-2xl);
+            padding: var(--spacing-2xl);
+            box-shadow: var(--shadow-2xl);
+            border: var(--border-width) solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .calculator-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .calculator-subtitle {
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .fee-badge {
+            background: var(--color-success);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .exchange-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .currency-input {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg);
+            background: var(--color-surface);
+            border: var(--border-width-thick) solid var(--color-border);
+            border-radius: var(--border-radius-xl);
+            transition: all var(--transition-fast);
+        }
+        
+        .currency-input:focus-within {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px var(--color-primary-light);
+        }
+        
+        .currency-select {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--color-background);
+            border: var(--border-width) solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            cursor: pointer;
+            min-width: 100px;
+        }
+        
+        .currency-flag {
+            width: 24px;
+            height: 18px;
+            border-radius: var(--border-radius-sm);
+            object-fit: cover;
+        }
+        
+        .currency-code {
+            font-weight: var(--font-weight-medium);
+            font-family: var(--font-family-mono);
+        }
+        
+        .amount-input {
+            flex: 1;
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            font-family: var(--font-family-mono);
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--color-text-primary);
+        }
+        
+        .amount-input::placeholder {
+            color: var(--color-text-muted);
+        }
+        
+        .exchange-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .swap-button {
+            width: 48px;
+            height: 48px;
+            background: var(--color-primary);
+            color: white;
+            border: 4px solid white;
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .swap-button:hover {
+            transform: rotate(180deg) scale(1.1);
+            background: var(--color-primary-hover);
+        }
+        
+        .exchange-rate {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: var(--color-surface);
+            border-radius: var(--border-radius-lg);
+            font-family: var(--font-family-mono);
+            color: var(--color-text-secondary);
+        }
+        
+        .rate-value {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: var(--spacing-4xl) 0;
+            background: var(--color-surface);
+        }
+        
+        .features-container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-4xl);
+        }
+        
+        .section-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .section-subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-relaxed);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-2xl);
+        }
+        
+        /* Trust Section */
+        .trust {
+            padding: var(--spacing-4xl) 0;
+            background: var(--color-background);
+        }
+        
+        .trust-container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-2xl);
+            margin-top: var(--spacing-2xl);
+        }
+        
+        .trust-item {
+            text-align: center;
+            padding: var(--spacing-xl);
+        }
+        
+        .trust-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: var(--border-radius-2xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+            font-size: var(--font-size-2xl);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .trust-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .trust-description {
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-relaxed);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-text-primary);
+            color: var(--color-surface);
+            padding: var(--spacing-4xl) 0 var(--spacing-xl);
+            margin-top: auto;
+        }
+        
+        .footer-container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        .footer-section h3 {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-lg);
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .footer-link {
+            color: var(--color-text-muted);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-link:hover {
+            color: var(--color-primary);
+        }
+        
+        .footer-bottom {
+            border-top: var(--border-width) solid var(--color-border);
+            padding-top: var(--spacing-xl);
+            text-align: center;
+            color: var(--color-text-muted);
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-2xl);
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: var(--font-size-3xl);
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .exchange-calculator {
+                padding: var(--spacing-xl);
+            }
+            
+            .currency-input {
+                flex-direction: column;
+                align-items: stretch;
+                gap: var(--spacing-sm);
+            }
+            
+            .features-grid,
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+        }
+        
+        /* Language Modal */
+        .language-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: var(--z-modal);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .language-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .language-modal-content {
+            background: var(--color-background);
+            border-radius: var(--border-radius-2xl);
+            padding: var(--spacing-2xl);
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-2xl);
+            transform: scale(0.9);
+            transition: transform var(--transition-normal);
+        }
+        
+        .language-modal.active .language-modal-content {
+            transform: scale(1);
+        }
+        
+        .language-modal-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .language-modal-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .language-modal-subtitle {
+            color: var(--color-text-secondary);
+        }
+        
+        .language-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+        
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg);
+            background: var(--color-surface);
+            border: var(--border-width-thick) solid var(--color-border);
+            border-radius: var(--border-radius-xl);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .language-option:hover {
+            border-color: var(--color-primary);
+            background: var(--color-primary-light);
+        }
+        
+        .language-option.selected {
+            border-color: var(--color-primary);
+            background: var(--color-primary-light);
+        }
+        
+        .language-option-flag {
+            width: 32px;
+            height: 24px;
+            border-radius: var(--border-radius-sm);
+            object-fit: cover;
+        }
+        
+        .language-option-text {
+            flex: 1;
+        }
+        
+        .language-option-name {
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .language-option-code {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            font-family: var(--font-family-mono);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <span data-translate="brand_name">CambioMax Pro</span>
+                </a>
+                
+                <nav class="nav">
+                    <div class="nav-links">
+                        <a href="#" class="nav-link active" data-translate="nav_home">Início</a>
+                        <a href="#features" class="nav-link" data-translate="nav_services">Serviços</a>
+                        <a href="#trust" class="nav-link" data-translate="nav_about">Sobre</a>
+                        <a href="#contact" class="nav-link" data-translate="nav_contact">Contato</a>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <button class="theme-toggle" id="themeToggle" title="Alternar tema">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        
+                        <div class="language-selector">
+                            <button class="language-btn" id="languageBtn">
+                                <img src="https://flagcdn.com/w40/br.png" alt="Português" class="flag-icon" id="currentFlag">
+                                <span id="currentLanguage">PT</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        
+                        <a href="pages/register.html" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            <span data-translate="header_register">Criar Conta</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>
+                        <span data-translate="hero_title_1">Câmbio de Moedas</span><br>
+                        <span class="highlight" data-translate="hero_title_2">Profissional</span>
+                    </h1>
+                    <p data-translate="hero_description">
+                        A plataforma mais confiável para suas operações de câmbio. 
+                        Taxas competitivas, segurança máxima e suporte especializado 24/7.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">50M+</span>
+                            <span class="hero-stat-label" data-translate="hero_stat_volume">Volume Transacionado</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">25K+</span>
+                            <span class="hero-stat-label" data-translate="hero_stat_clients">Clientes Ativos</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">99.9%</span>
+                            <span class="hero-stat-label" data-translate="hero_stat_uptime">Disponibilidade</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="exchange-calculator">
+                    <div class="calculator-header">
+                        <h2 class="calculator-title" data-translate="calculator_title">Calculadora de Câmbio</h2>
+                        <p class="calculator-subtitle">
+                            <span data-translate="calculator_subtitle">Nossa taxa:</span>
+                            <span class="fee-badge">0.4%</span>
+                        </p>
+                    </div>
+                    
+                    <form class="exchange-form" id="exchangeForm">
+                        <div class="currency-input">
+                            <div class="currency-select" id="fromCurrency">
+                                <img src="https://flagcdn.com/w40/br.png" alt="Brasil" class="currency-flag">
+                                <span class="currency-code">BRL</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <input type="text" class="amount-input" id="fromAmount" placeholder="0.00" data-translate-placeholder="amount_placeholder">
+                        </div>
+                        
+                        <div class="exchange-divider">
+                            <button type="button" class="swap-button" id="swapButton" title="Trocar moedas">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="currency-input">
+                            <div class="currency-select" id="toCurrency">
+                                <img src="https://flagcdn.com/w40/us.png" alt="Estados Unidos" class="currency-flag">
+                                <span class="currency-code">USD</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <input type="text" class="amount-input" id="toAmount" placeholder="0.00" readonly>
+                        </div>
+                        
+                        <div class="exchange-rate" id="exchangeRate">
+                            <span data-translate="exchange_rate_label">1 BRL = </span>
+                            <span class="rate-value">0.2000 USD</span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success btn-lg btn-full">
+                            <i class="fas fa-arrow-right"></i>
+                            <span data-translate="start_exchange">Iniciar Câmbio</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="features-container">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="features_title">Nossos Serviços</h2>
+                    <p class="section-subtitle" data-translate="features_subtitle">
+                        Soluções completas e seguras para todas as suas necessidades de câmbio internacional
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="card card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="card-feature-title" data-translate="feature_pix_title">Pagamento via PIX</h3>
+                        <p class="card-feature-description" data-translate="feature_pix_description">
+                            Para clientes brasileiros, oferecemos a praticidade do PIX para pagamentos 
+                            instantâneos e seguros, disponível 24 horas por dia.
+                        </p>
+                    </div>
+                    
+                    <div class="card card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="card-feature-title" data-translate="feature_bank_title">Transferência Bancária</h3>
+                        <p class="card-feature-description" data-translate="feature_bank_description">
+                            Para clientes internacionais, aceitamos transferências bancárias com 
+                            total segurança e rastreamento completo da operação.
+                        </p>
+                    </div>
+                    
+                    <div class="card card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="card-feature-title" data-translate="feature_security_title">Máxima Segurança</h3>
+                        <p class="card-feature-description" data-translate="feature_security_description">
+                            Verificação de identidade rigorosa, criptografia de ponta e processos 
+                            auditados para proteger suas transações e dados pessoais.
+                        </p>
+                    </div>
+                    
+                    <div class="card card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="card-feature-title" data-translate="feature_support_title">Suporte 24/7</h3>
+                        <p class="card-feature-description" data-translate="feature_support_description">
+                            Nossa equipe especializada está sempre disponível para ajudar você 
+                            em qualquer momento, em múltiplos idiomas.
+                        </p>
+                    </div>
+                    
+                    <div class="card card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="card-feature-title" data-translate="feature_rates_title">Melhores Taxas</h3>
+                        <p class="card-feature-description" data-translate="feature_rates_description">
+                            Oferecemos as taxas mais competitivas do mercado, com total 
+                            transparência e sem taxas ocultas em suas operações.
+                        </p>
+                    </div>
+                    
+                    <div class="card card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="card-feature-title" data-translate="feature_global_title">Cobertura Global</h3>
+                        <p class="card-feature-description" data-translate="feature_global_description">
+                            Operamos em mais de 50 países, oferecendo câmbio para as principais 
+                            moedas mundiais com entrega rápida e segura.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trust Section -->
+        <section class="trust" id="trust">
+            <div class="trust-container">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="trust_title">Por que escolher a CambioMax Pro?</h2>
+                    <p class="section-subtitle" data-translate="trust_subtitle">
+                        Somos uma empresa especializada em câmbio com anos de experiência no mercado financeiro
+                    </p>
+                </div>
+                
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="trust-title" data-translate="trust_experience_title">Experiência Comprovada</h3>
+                        <p class="trust-description" data-translate="trust_experience_description">
+                            Mais de 10 anos no mercado financeiro, com milhares de operações 
+                            realizadas com sucesso e total satisfação dos clientes.
+                        </p>
+                    </div>
+                    
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="trust-title" data-translate="trust_licensed_title">Licenciada e Regulamentada</h3>
+                        <p class="trust-description" data-translate="trust_licensed_description">
+                            Empresa devidamente licenciada pelo Banco Central e regulamentada 
+                            pelos órgãos competentes, garantindo total conformidade legal.
+                        </p>
+                    </div>
+                    
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="trust-title" data-translate="trust_team_title">Equipe Especializada</h3>
+                        <p class="trust-description" data-translate="trust_team_description">
+                            Profissionais altamente qualificados em câmbio internacional, 
+                            prontos para oferecer o melhor atendimento e consultoria.
+                        </p>
+                    </div>
+                    
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3 class="trust-title" data-translate="trust_insurance_title">Seguro e Protegido</h3>
+                        <p class="trust-description" data-translate="trust_insurance_description">
+                            Todas as operações são protegidas por seguros internacionais e 
+                            sistemas de segurança de última geração.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer" id="contact">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3 data-translate="footer_company">Empresa</h3>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link" data-translate="footer_about">Sobre Nós</a>
+                            <a href="#" class="footer-link" data-translate="footer_careers">Carreiras</a>
+                            <a href="#" class="footer-link" data-translate="footer_press">Imprensa</a>
+                            <a href="#" class="footer-link" data-translate="footer_investors">Investidores</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 data-translate="footer_services">Serviços</h3>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link" data-translate="footer_exchange">Câmbio de Moedas</a>
+                            <a href="#" class="footer-link" data-translate="footer_transfer">Transferências</a>
+                            <a href="#" class="footer-link" data-translate="footer_business">Empresarial</a>
+                            <a href="#" class="footer-link" data-translate="footer_api">API</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 data-translate="footer_support">Suporte</h3>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link" data-translate="footer_help">Central de Ajuda</a>
+                            <a href="#" class="footer-link" data-translate="footer_contact_support">Contato</a>
+                            <a href="#" class="footer-link" data-translate="footer_status">Status do Sistema</a>
+                            <a href="#" class="footer-link" data-translate="footer_security">Segurança</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 data-translate="footer_legal">Legal</h3>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link" data-translate="footer_privacy">Privacidade</a>
+                            <a href="#" class="footer-link" data-translate="footer_terms">Termos de Uso</a>
+                            <a href="#" class="footer-link" data-translate="footer_compliance">Compliance</a>
+                            <a href="#" class="footer-link" data-translate="footer_licenses">Licenças</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p data-translate="footer_copyright">
+                        © 2024 CambioMax Pro. Todos os direitos reservados. 
+                        Empresa licenciada pelo Banco Central do Brasil.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Language Selection Modal -->
+    <div class="language-modal" id="languageModal">
+        <div class="language-modal-content">
+            <div class="language-modal-header">
+                <h2 class="language-modal-title" data-translate="language_modal_title">Selecione seu idioma</h2>
+                <p class="language-modal-subtitle" data-translate="language_modal_subtitle">Escolha seu idioma preferido</p>
+            </div>
+            
+            <div class="language-options">
+                <div class="language-option selected" data-lang="pt-BR">
+                    <img src="https://flagcdn.com/w40/br.png" alt="Português" class="language-option-flag">
+                    <div class="language-option-text">
+                        <div class="language-option-name">Português</div>
+                        <div class="language-option-code">pt-BR</div>
+                    </div>
+                </div>
+                
+                <div class="language-option" data-lang="en-US">
+                    <img src="https://flagcdn.com/w40/us.png" alt="English" class="language-option-flag">
+                    <div class="language-option-text">
+                        <div class="language-option-name">English</div>
+                        <div class="language-option-code">en-US</div>
+                    </div>
+                </div>
+                
+                <div class="language-option" data-lang="es-ES">
+                    <img src="https://flagcdn.com/w40/es.png" alt="Español" class="language-option-flag">
+                    <div class="language-option-text">
+                        <div class="language-option-name">Español</div>
+                        <div class="language-option-code">es-ES</div>
+                    </div>
+                </div>
+                
+                <div class="language-option" data-lang="zh-CN">
+                    <img src="https://flagcdn.com/w40/cn.png" alt="中文" class="language-option-flag">
+                    <div class="language-option-text">
+                        <div class="language-option-name">中文</div>
+                        <div class="language-option-code">zh-CN</div>
+                    </div>
+                </div>
+                
+                <div class="language-option" data-lang="th-TH">
+                    <img src="https://flagcdn.com/w40/th.png" alt="ไทย" class="language-option-flag">
+                    <div class="language-option-text">
+                        <div class="language-option-name">ไทย</div>
+                        <div class="language-option-code">th-TH</div>
+                    </div>
+                </div>
+                
+                <div class="language-option" data-lang="fr-FR">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="Français" class="language-option-flag">
+                    <div class="language-option-text">
+                        <div class="language-option-name">Français</div>
+                        <div class="language-option-code">fr-FR</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="scripts/utils/translations.js"></script>
+    <script src="scripts/modules/theme.js"></script>
+    <script src="scripts/modules/language.js"></script>
+    <script src="scripts/modules/exchange.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
+
